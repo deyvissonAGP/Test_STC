@@ -13,5 +13,8 @@
 
 Route::get('/escolas/', 'apiController@index');
 Route::get('/escola/{escola}','apiController@show');
+Route::get('/', function(){
+        return view('index');
+});
 
 

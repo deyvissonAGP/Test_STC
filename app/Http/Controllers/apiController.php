@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Imovel;
+use App\Gestor;
 
 class apiController extends Controller
 {
@@ -17,7 +18,6 @@ class apiController extends Controller
     public function index()
     {
         $imovel = $this->imovel::all();
-
         return response()->json($imovel);
     }
 

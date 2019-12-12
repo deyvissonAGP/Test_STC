@@ -55,7 +55,7 @@
             </div>
             <div class="col-md-4">
                 <b>Status da Escola</b>
-                <div class="card text-white bg-success" style="width: 8rem; height: 2rem;"><b align="center">Ativo</b></div>
+                <div class="card text-white bg-success" style="width: 8rem; height: 2rem;"><b align="center">{{$dados->situacao}}</b></div>
             </div>
         </div>
         @endforeach
@@ -228,7 +228,10 @@
 </script>
 
 <script>
+    $.get('http://127.0.0.1:8000/api/escolas', function(resposta) {
 
+        $('body').html(lista);
+    }, 'json');
 </script>
 
 </body>

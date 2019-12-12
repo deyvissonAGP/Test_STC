@@ -13,7 +13,28 @@
     <div class="container">
         <h3>Lista de Escolas::</h3>
         <div class="jumbotron">
-
+            @foreach($dado as $dado)
+            <table class="table table-dark">
+                <thead>
+                <tr>
+                    <th scope="col">id</th>
+                    <th scope="col">Escola</th>
+                    <th scope="col">Anexo</th>
+                    <th scope="col">Inep</th>
+                    <th scope="col">Descrição</th>
+                    <th scope="col">Detalhar</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row"></th>
+                    <td></td>
+                    <td></td>
+                    <td></td>
+                </tr>
+                </tbody>
+            </table>
+            @endforeach
         </div>
     </div>
 </body>
