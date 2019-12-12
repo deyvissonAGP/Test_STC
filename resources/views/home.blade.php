@@ -229,8 +229,7 @@
 
 <script>
     $.get('http://127.0.0.1:8000/api/escolas', function(resposta) {
-
-        $('body').html(lista);
+        $('body').html(dados);
     }, 'json');
 </script>
 

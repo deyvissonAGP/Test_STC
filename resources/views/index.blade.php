@@ -13,7 +13,6 @@
     <div class="container">
         <h3>Lista de Escolas::</h3>
         <div class="jumbotron">
-            @foreach($dado as $dado)
             <table class="table table-dark">
                 <thead>
                 <tr>
@@ -34,7 +33,6 @@
                 </tr>
                 </tbody>
             </table>
-            @endforeach
         </div>
     </div>
 </body>
