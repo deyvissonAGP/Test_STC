@@ -39,15 +39,19 @@
                     <div class="card border-light mb-3" style="max-width: 18rem;">
                         <div class="card-header" align="center"><b>Status financeiro</b></div>
                         <div class="card-body">
-                            <div class="card text-white bg-success" style="width: 15rem; height: 2.2rem;"><b align="center">ADMINPLENTE</b></div>
+                            <div class="card text-white bg-success" style="display: flex; align-items: center;  justify-content: center; width: 15rem; height: 2rem;"><b align="center">ADMINPLENTE</b></div>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div class="row">
+            <div class="row" style="margin-top: 15px">
                 <div class="col md-12">
                     <h3>@{{ escola.nome }}</h3>
+                </div>
+                <div class="col-md-4">
+                    <b>Status da Escola</b>
+                    <div class="card text-white bg-success" style="display: flex; align-items: center;  justify-content: center; width: 8rem; height: 2rem;"><b align="center">@{{ escola.situacao }}</b></div>
                 </div>
             </div>
 
@@ -56,10 +60,6 @@
                     <p>Codigo INEP: @{{ escola.inep }}</p>
                 </div>
 
-                <div class="col-md-4">
-                    <b>Status da Escola</b>
-                    <div class="card text-white bg-success" style="width: 8rem; height: 2rem;"><b align="center">@{{ escola.situacao }}</b></div>
-                </div>
             </div>
             <br><div class="card"   >
                 <br><div class="row">
@@ -118,17 +118,17 @@
                         <strong> Tipo </strong>
                         <p>@{{ escola.cargo }}</p>
                     </div>
-                </div>
-                <div class="row">
                     <div class="col-md-4">
                         <strong> Email </strong>
                         <p>@{{ escola.email }}</p>
                     </div>
+                </div>
+                <div class="row">
                     <div class="col md-4">
                         <strong> Telefone </strong>
                         <p>@{{ escola.celular }}</p>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-8">
                         <strong> Tipo de seleção </strong>
                         <p>@{{ escola.tipo_eleito }}</p>
                     </div>
@@ -137,7 +137,7 @@
 
             <b>DADOS DA DIREÇÃO</b><br>
 
-            <table class="table">
+            <table class="table table-striped">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
@@ -148,10 +148,10 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>@{{ escola.nomeg }}</td>
+                        <td>@{{ escola.cargo }}</td>
+                        <td>@{{ escola.matricula }}</td>
+                        <td>@{{ escola.situacao_cargo }}</td>
                     </tr>
                 </table>
             <br>
@@ -171,23 +171,23 @@
             <div class="card" >
                 <div class="row">
                     <div class="col-md-2">
-                        Vigilancia
+                       <strong> Vigilancia </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        Serviços Gerais
+                        <strong> Serviços Gerais </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        Aluguel
+                        <strong> Aluguel </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        Energia
+                        <strong> Energia </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        Merendeira
+                        <strong> Merendeira </strong>
                         <p></p>
                     </div>
                 </div>
@@ -197,19 +197,19 @@
             <div class="card" >
                 <div class="row">
                     <div class="col-md-2">
-                        Caixa Escolar
+                        <strong> Caixa Escolar </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        PNAE
+                        <strong> PNAE </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        PDDE
+                        <strong> PDDE </strong>
                         <p></p>
                     </div>
                     <div class="col-md-2">
-                        Outros
+                       <strong> Outros </strong>
                         <p></p>
                     </div>
                 </div>
