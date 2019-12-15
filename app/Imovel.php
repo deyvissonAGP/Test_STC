@@ -10,6 +10,9 @@ class Imovel extends Model
     protected $primaryKey = 'codigo';
 
     public function Gestor(){
-        return $this->belongsToMany('App\Gestor');
+        return $this->hasMany(Gestor::class, 'codigo_imovel', 'codigo');
+    }
+    public function Repasse(){
+        return $this->hasOne(Repasse::class);
     }
 }

@@ -11,10 +11,15 @@
 |
 */
 
-Route::get('/escolas/', 'apiController@index');
-Route::get('/escolas/{escola}','apiController@show');
 Route::get('/', function(){
-        return view('index');
+    return redirect('escolas');
 });
+Route::get('escolas/', function (){
+   return view('index');
+});
+Route::get('escolas/{escola}', function(){
+   return view('home');
+});
+
 
 

@@ -7,230 +7,236 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Dashboard</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body>
-<div class="container">
-    <h3>Detalhamento da Escola</h3>
-    <div class="jumbotron">
-        <a href="{{asset('index')}}">home /</a><br><br>
-        <div class="row">
-            <div class="col-md-4">
-                <div class="card border-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header" align="center"><b>Vagas na Escola</b></div>
-                    <div class="card-body">
-                        <h5 class="card-title" align="center">000000</h5>
+<div id="app">
+    <div class="container">
+        <h3>Detalhamento da Escola</h3>
+        <div class="jumbotron">
+            <a href="{{asset('/')}}">home /</a><br><br>
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header" align="center"><b>Vagas na Escola</b></div>
+                        <div class="card-body">
+                            <h5 class="card-title" align="center">@{{ escola.total_escolarizacao }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header" align="center"><b>Tipo Escola</b></div>
+                        <div class="card-body">
+                            <h5 class="card-title" align="center">@{{ escola.anexo }}</h5>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-light mb-3" style="max-width: 18rem;">
+                        <div class="card-header" align="center"><b>Status financeiro</b></div>
+                        <div class="card-body">
+                            <div class="card text-white bg-success" style="width: 15rem; height: 2.2rem;"><b align="center">ADMINPLENTE</b></div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="col-md-4">
-                <div class="card border-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header" align="center"><b>Tipo Escola</b></div>
-                    <div class="card-body">
-                        <h5 class="card-title" align="center">Anexo</h5>
+
+            <div class="row">
+                <div class="col md-12">
+                    <h3>@{{ escola.nome }}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-8">
+                    <p>Codigo INEP: @{{ escola.inep }}</p>
+                </div>
+
+                <div class="col-md-4">
+                    <b>Status da Escola</b>
+                    <div class="card text-white bg-success" style="width: 8rem; height: 2rem;"><b align="center">@{{ escola.situacao }}</b></div>
+                </div>
+            </div>
+            <br><div class="card"   >
+                <br><div class="row">
+                    <div class="col-md-4">
+                        <strong>Endereço</strong>
+                        <p>@{{ escola.logradouro }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>Bairro</strong>
+                        <p>@{{ escola.bairro }}</p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong>CEP</strong>
+                        <p>@{{ escola.cep }}</p>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-4">
-                <div class="card border-light mb-3" style="max-width: 18rem;">
-                    <div class="card-header" align="center"><b>Status financeiro</b></div>
-                    <div class="card-body">
-                        <div class="card text-white bg-success" style="width: 15rem; height: 2.2rem;"><b align="center">Adimplente</b></div>
+                <div class="row">
+                    <div class="col-md-4">
+                        <strong> Localidade </strong>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4">
+                       <strong> Telefone </strong>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong> Regional </strong>
+                        <p>@{{ escola.regional }}</p>
                     </div>
                 </div>
-            </div>
-        </div>
-        @foreach($dado as $dados)
-        <div class="row">
-            <div class="col md-12">
-                <h3>{{$dados->nome}}</h3>
-            </div>
-        </div>
+                <div class="row">
+                    <div class="col-md-4">
+                       <strong> Dados do imovel </strong>
+                        <p>#######</p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong> Tipo de Escola </strong>
+                        <p></p>
+                    </div>
+                    <div class="col-md-4">
+                        <strong> Tipo de ensino </strong>
+                        <p>@{{ escola.modalidade }}</p>
+                    </div>
+                </div>
+            </div><br>
 
-        <div class="row">
-            <div class="col-md-4">
-                <p>Codigo Inep: {{$dados->inep}}</p>
-            </div>
-            <div class="col-md-4">
-                <p>CNPJ: {{$dados->cnpj}}</p>
-            </div>
-            <div class="col-md-4">
-                <b>Status da Escola</b>
-                <div class="card text-white bg-success" style="width: 8rem; height: 2rem;"><b align="center">{{$dados->situacao}}</b></div>
-            </div>
-        </div>
-        @endforeach
-        <br><div class="card" style="max-width: 53rem;">
-            <br><div class="row">
-                <div class="col-md-4">
-                    Endereço
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Bairro
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    CEP
-                    <p>#######</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    Localidade
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Telefone
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Regional
-                    <p>#######</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    Dados do imovel
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Tipo de Escola
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Tipo de ensino
-                    <p>#######</p>
-                </div>
-            </div>
-        </div><br>
+            <b>Dados do Gestor</b><br>
 
-        <b>Dados do Gestor</b><br>
+            <div class="card" >
+                <div class="row">
+                    <div class="col-md-6">
+                        Nome
+                        <p>@{{ escola.nome }}</p>
+                    </div>
+                    <div class="col-md-6">
+                        Tipo
+                        <p>######</p>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4">
+                        Email
+                        <p>#######</p>
+                    </div>
+                    <div class="col md-4">
+                        Telefone
+                        <p>#######</p>
+                    </div>
+                    <div class="col-md-4">
+                        Tipo de seleção
+                        <p>#####</p>
+                    </div>
+                </div>
+            </div><br>
 
-        <div class="card" style="max-width: 53rem;">
-            <div class="row">
-                <div class="col-md-6">
-                    Nome
-                    <p>###############</p>
-                </div>
-                <div class="col-md-6">
-                    Tipo
-                    <p>######</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    Email
-                    <p>#######</p>
-                </div>
-                <div class="col md-4">
-                    Telefone
-                    <p>#######</p>
-                </div>
-                <div class="col-md-4">
-                    Tipo de seleção
-                    <p>#####</p>
-                </div>
-            </div>
-        </div><br>
+            <b>Dados da sala fora</b><br>
 
-        <b>Dados da sala fora</b><br>
-
-        <table class="table" style="max-width: 53rem;">
-            <thead>
+            <table class="table" >
+                <thead>
+                    <tr>
+                        <th scope="col">Nome</th>
+                        <th scope="col">CNPJ</th>
+                        <th scope="col">Logradouro</th>
+                        <th scope="col">status</th>
+                        <th scope="col">Gestor Auxiliar</th>
+                    </tr>
+                </thead>
+                <tbody>
                 <tr>
-                    <th scope="col">Nome</th>
-                    <th scope="col">CNPJ</th>
-                    <th scope="col">Logradouro</th>
-                    <th scope="col">status</th>
-                    <th scope="col">Gestor Auxiliar</th>
+                    <td>##</td>
+                    <td>##</td>
+                    <td>##</td>
+                    <td>##</td>
+                    <td>##</td>
                 </tr>
-            </thead>
-            <tbody>
-            <tr>
-                <td>##</td>
-                <td>##</td>
-                <td>##</td>
-                <td>##</td>
-                <td>##</td>
-            </tr>
-        </table>
-        <br>
+            </table>
+            <br>
 
-        <b>Financeiro</b><br>
+            <b>Financeiro</b><br>
 
-        <ul class="nav" style="max-width: 53rem;">
-            <li class="nav-item">
-                <a class="nav-link" href="#">Contratos e repasses</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#">Prestação de Contas</a>
-            </li>
-        </ul>
+            <ul class="nav" >
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Contratos e repasses</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Prestação de Contas</a>
+                </li>
+            </ul>
 
-        <b>Contratos</b><br>
+            <b>Contratos</b><br>
 
-        <div class="card" style="max-width: 53rem;">
-            <div class="row">
-                <div class="col-md-2">
-                    Vigilancia
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    Serviços Gerais
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    Aluguel
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    Energia
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    Merendeira
-                    <p>###</p>
+            <div class="card" >
+                <div class="row">
+                    <div class="col-md-2">
+                        Vigilancia
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        Serviços Gerais
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        Aluguel
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        Energia
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        Merendeira
+                        <p>###</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <br>
+            <br>
 
-        <b>Repasses</b><br>
+            <b>Repasses</b><br>
 
-        <div class="card" style="max-width: 53rem;">
-            <div class="row">
-                <div class="col-md-2">
-                    Caixa Escolar
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    PNAE
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    PDDE
-                    <p>###</p>
-                </div>
-                <div class="col-md-2">
-                    Outros
-                    <p>###</p>
+            <div class="card" >
+                <div class="row">
+                    <div class="col-md-2">
+                        Caixa Escolar
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        PNAE
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        PDDE
+                        <p>###</p>
+                    </div>
+                    <div class="col-md-2">
+                        Outros
+                        <p>###</p>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
 
-
-<script
-    src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-    crossorigin="anonymous">
-</script>
-
 <script>
-    $.get('http://127.0.0.1:8000/api/escolas', function(resposta) {
-        $('body').html(dados);
-    }, 'json');
+    new Vue({
+        el: '#app',
+        data(){
+            return {
+                escola: null
+            }
+        },
+        mounted(){
+            axios
+                .get('{{ request()->getSchemeAndHttpHost() }}/api/escolas/{{ request()->escola }}')
+                    .then(response => {this.escola = response.data})
+                        .catch(error => console.log(error));
+
+        }
+    })
 </script>
 
 </body>

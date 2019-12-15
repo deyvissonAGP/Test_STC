@@ -9,6 +9,6 @@ class Gestor extends Model
     protected $table = 'tblgestor';
 
     public function Imovel(){
-        return $this->belongsToMany('App\Imovel');
+        return $this->belongsToMany(Imovel::class);
     }
 }

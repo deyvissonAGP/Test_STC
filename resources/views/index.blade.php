@@ -7,33 +7,53 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Index</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!--<script src="{{asset('../public/css/app')}}"></script>-->
 </head>
 <body>
+<div id="app">
     <div class="container">
-        <h3>Lista de Escolas::</h3>
+        <h3>Lista de Escolas</h3>
         <div class="jumbotron">
             <table class="table table-dark">
-                <thead>
                 <tr>
-                    <th scope="col">id</th>
-                    <th scope="col">Escola</th>
-                    <th scope="col">Anexo</th>
-                    <th scope="col">Inep</th>
-                    <th scope="col">Descrição</th>
-                    <th scope="col">Detalhar</th>
+                    <th>Codigo</th>
+                    <th>Nome</th>
+                    <th>inep</th>
+                    <th>anexo</th>
+                    <th>descrição</th>
+                    <th>Outros</th>
                 </tr>
-                </thead>
                 <tbody>
-                <tr>
-                    <th scope="row"></th>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                    <tr v-for="dado in dados" class="dados">
+                        <td>@{{ dado.codigo }}</td>
+                        <td>@{{ dado.nome }}</td>
+                        <td>@{{ dado.inep }}</td>
+                        <td>@{{ dado.anexo }}</td>
+                        <td>@{{ dado.descricao }}</td>
+                        <td><a :href="'/escolas/' + dado.codigo" class="btn btn-info">Detalhes</a></td>
+                    </tr>
                 </tbody>
             </table>
         </div>
     </div>
+</div>
+<script>
+    new Vue({
+        el: '#app',
+        data(){
+            return {
+                dados: null
+            }
+        },
+        mounted(){
+            axios
+                .get('{{ request()->getSchemeAndHttpHost() }}/api/escolas')
+                    .then(response => (this.dados = response.data))
+                        .catch(error => console.log(error))
+        }
+    })
+</script>
 </body>
 </html>
