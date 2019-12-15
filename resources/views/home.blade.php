@@ -23,7 +23,7 @@
                     <div class="card border-light mb-3" style="max-width: 18rem;">
                         <div class="card-header" align="center"><b>Vagas na Escola</b></div>
                         <div class="card-body">
-                            <h5 class="card-title" align="center">@{{ escola.total_escolarizacao }}</h5>
+                            <h5 class="card-title" align="center" >@{{ escola.total_escolarizacao }}</h5>
                         </div>
                     </div>
                 </div>
@@ -151,7 +151,7 @@
                         <td>@{{ escola.nomeg }}</td>
                         <td>@{{ escola.cargo }}</td>
                         <td>@{{ escola.matricula }}</td>
-                        <td>@{{ escola.situacao_cargo }}</td>
+                        <td>@{{ escola.situacao.cargo }}</td>
                     </tr>
                 </table>
             <br>
