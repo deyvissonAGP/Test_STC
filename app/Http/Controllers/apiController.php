@@ -23,7 +23,7 @@ class apiController extends Controller
 
     public function show($codigo)
     {
-        $escola = $this->imovel::find($codigo);
+        $escola = $this->imovel::join('tblgestor', 'tblgestor.codigo_imovel', '=', 'codigo_imovel')->find($codigo);
 
         return response()->json($escola);
     }

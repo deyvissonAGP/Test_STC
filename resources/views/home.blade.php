@@ -15,7 +15,7 @@
     <div class="container">
         <h3>Detalhamento da Escola</h3>
         <div class="jumbotron">
-            <a href="{{asset('/')}}">home /</a><br><br>
+            <a href="{{asset('/')}}" class="btn btn-info">Home</a><br><br>
             <div class="row">
                 <div class="col-md-4">
                     <div class="card border-light mb-3" style="max-width: 18rem;">
@@ -77,11 +77,11 @@
                 <div class="row">
                     <div class="col-md-4">
                         <strong> Localidade </strong>
-                        <p></p>
+                        <p>@{{ escola.cidade }}</p>
                     </div>
                     <div class="col-md-4">
                        <strong> Telefone </strong>
-                        <p></p>
+                        <p>S/N</p>
                     </div>
                     <div class="col-md-4">
                         <strong> Regional </strong>
@@ -91,11 +91,11 @@
                 <div class="row">
                     <div class="col-md-4">
                        <strong> Dados do imovel </strong>
-                        <p>#######</p>
+                        <p>@{{ escola.ocupacao }}</p>
                     </div>
                     <div class="col-md-4">
                         <strong> Tipo de Escola </strong>
-                        <p></p>
+                        <p>S/N</p>
                     </div>
                     <div class="col-md-4">
                         <strong> Tipo de ensino </strong>
@@ -104,38 +104,38 @@
                 </div>
             </div><br>
 
-            <b>Dados do Gestor</b><br>
+            <b>DADOS DO GESTOR</b><br>
 
             <div class="card" >
                 <div class="row">
-                    <div class="col-md-6">
-                        Nome
-                        <p>@{{ escola.nome }}</p>
+                    <div class="col-md-4">
+                       <strong> Nome </strong>
+                        <p>@{{ escola.nomeg }}</p>
                     </div>
-                    <div class="col-md-6">
-                        Tipo
-                        <p>######</p>
+                    <div class="col-md-4">
+                        <strong> Tipo </strong>
+                        <p>@{{ escola.cargo }}</p>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-4">
-                        Email
-                        <p>#######</p>
+                        <strong> Email </strong>
+                        <p>@{{ escola.email }}</p>
                     </div>
                     <div class="col md-4">
-                        Telefone
-                        <p>#######</p>
+                        <strong> Telefone </strong>
+                        <p>@{{ escola.celular }}</p>
                     </div>
                     <div class="col-md-4">
-                        Tipo de seleção
-                        <p>#####</p>
+                        <strong> Tipo de seleção </strong>
+                        <p>@{{ escola.tipo_eleito }}</p>
                     </div>
                 </div>
             </div><br>
 
-            <b>Dados da sala fora</b><br>
+            <b>DADOS DA SALA FORA</b><br>
 
-            <table class="table" >
+            <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
@@ -156,7 +156,7 @@
             </table>
             <br>
 
-            <b>Financeiro</b><br>
+            <b>FINANCEIRO</b><br>
 
             <ul class="nav" >
                 <li class="nav-item">
