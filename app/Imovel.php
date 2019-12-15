@@ -13,6 +13,6 @@ class Imovel extends Model
         return $this->hasMany(Gestor::class, 'codigo_imovel', 'codigo');
     }
     public function Repasse(){
-        return $this->hasOne(Repasse::class);
+        return $this->hasOne(Repasse::class, 'codigo_imovel', 'codigo');
     }
 }

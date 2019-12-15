@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <link href="{{ asset('/css/app.css') }}" rel="stylesheet">
+
 </head>
 <body>
 <div id="app">
@@ -133,87 +135,82 @@
                 </div>
             </div><br>
 
-            <b>DADOS DA SALA FORA</b><br>
+            <b>DADOS DA DIREÇÃO</b><br>
 
             <table class="table">
                 <thead>
                     <tr>
                         <th scope="col">Nome</th>
-                        <th scope="col">CNPJ</th>
-                        <th scope="col">Logradouro</th>
-                        <th scope="col">status</th>
-                        <th scope="col">Gestor Auxiliar</th>
+                        <th scope="col">Cargo</th>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Situação</th>
                     </tr>
                 </thead>
                 <tbody>
-                <tr>
-                    <td>##</td>
-                    <td>##</td>
-                    <td>##</td>
-                    <td>##</td>
-                    <td>##</td>
-                </tr>
-            </table>
+                    <tr>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </table>
             <br>
 
             <b>FINANCEIRO</b><br>
 
-            <ul class="nav" >
+            <ul class="nav nav-tabs" >
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Contratos e repasses</a>
+                    <a class="nav-link active" href="">Contratos e repasses</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Prestação de Contas</a>
+                    <a class="nav-link" href="">Prestação de Contas</a>
                 </li>
-            </ul>
+            </ul><br>
 
             <b>Contratos</b><br>
-
             <div class="card" >
                 <div class="row">
                     <div class="col-md-2">
                         Vigilancia
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         Serviços Gerais
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         Aluguel
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         Energia
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         Merendeira
-                        <p>###</p>
+                        <p></p>
                     </div>
                 </div>
-            </div>
-            <br>
+            </div><br>
 
             <b>Repasses</b><br>
-
             <div class="card" >
                 <div class="row">
                     <div class="col-md-2">
                         Caixa Escolar
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         PNAE
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         PDDE
-                        <p>###</p>
+                        <p></p>
                     </div>
                     <div class="col-md-2">
                         Outros
-                        <p>###</p>
+                        <p></p>
                     </div>
                 </div>
             </div>
