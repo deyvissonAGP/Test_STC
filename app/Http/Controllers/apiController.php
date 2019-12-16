@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Imovel;
 use App\Gestor;
+use App\Repasse;
 
 class apiController extends Controller
 {
@@ -18,12 +19,14 @@ class apiController extends Controller
     public function index()
     {
         $imovel = $this->imovel::all();
+
         return response()->json($imovel);
     }
 
     public function show($codigo)
     {
-        $escola = $this->imovel::join('tblgestor', 'tblgestor.codigo_imovel', '=', 'codigo_imovel')
+
+        $escola = $this->imovel::join('tblgestor', 'codigo_imovel', '=', 'tblgestor.codigo_imovel')
                                 ->find($codigo);
 
         return response()->json($escola);

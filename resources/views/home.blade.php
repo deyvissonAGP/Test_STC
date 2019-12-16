@@ -136,7 +136,6 @@
             </div><br>
 
             <b>DADOS DA DIREÇÃO</b><br>
-
             <table class="table table-striped">
                 <thead>
                     <tr>
@@ -151,9 +150,10 @@
                         <td>@{{ escola.nomeg }}</td>
                         <td>@{{ escola.cargo }}</td>
                         <td>@{{ escola.matricula }}</td>
-                        <td>@{{ escola.situacao.cargo }}</td>
+                        <td>@{{ escola.situacao_cargo }}</td>
                     </tr>
-                </table>
+                </tbody>
+            </table>
             <br>
 
             <b>FINANCEIRO</b><br>
@@ -230,10 +230,10 @@
             axios
                 .get('{{ request()->getSchemeAndHttpHost() }}/api/escolas/{{ request()->escola }}')
                     .then(response => {this.escola = response.data})
-                        .catch(error => console.log(error));
-
+                        .catch(error => console.log(error))
         }
     })
+
 </script>
 
 </body>
